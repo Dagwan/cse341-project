@@ -1,0 +1,87 @@
+// LOCALHOST
+### create Task
+curl -X POST \
+  'http://localhost:8080/cse341-project/tasks' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "title": "New Task Title",
+    "description": "New Task Description",
+    "dueDate": "2023-12-31T23:59:59.999Z",
+    "priority": "High",
+    "completed": false,
+    "createdBy": "userObjectId",
+    "tags": ["tag1", "tag2"]
+  }'
+  
+
+### get all tasks
+GET http://localhost:8080/cse341-project/tasks
+
+### get task by id
+GET http://localhost:8080/cse341-project/tasks/652593d1b94db1233da25ad3
+
+
+### create User
+curl -X PUT \
+  'http://localhost:8080/cse341-project/tasks/652593d1b94db1233da25ad3' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "title": "Updated Task Title1",
+    "description": "Updated Task Description",
+    "dueDate": "2023-12-31T23:59:59.999Z",
+    "priority": "High",
+    "completed": true,
+    "createdBy": "userObjectId",
+    "tags": ["tag1", "tag2"]
+  }'
+
+  ### get task by id
+DELETE url HTTP/1.1 http://localhost:8080/cse341-project/tasks/652593d1b94db1233da25ad3
+
+
+// LOCALHOST
+// create user
+###
+curl -X POST \
+  'http://localhost:8080/cse341-project/users' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "New User Name",
+    "title": "New User Title",
+    "description": "New User Description",
+    "dueDate": "2023-12-31T23:59:59.999Z",
+    "priority": "High",
+    "completed": false,
+    "createdBy": "userObjectId",
+    "tags": ["tag1", "tag2"]
+  }'
+
+
+### get all users
+GET http://localhost:8080/cse341-project/users
+
+### get  user by id
+GET http://localhost:8080/cse341-project/users/65259351b94db1233da25ad2
+
+
+### update users
+curl -X PUT \
+  'http://localhost:8080/cse341-project/users/65259351b94db1233da25ad2' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "Updated User Name",
+    "title": "Updated User Title",
+    "description": "Updated User Description",
+    "dueDate": "2023-12-31T23:59:59.999Z",
+    "priority": "High",
+    "completed": true,
+    "createdBy": "userObjectId",
+    "tags": ["tag1", "tag2"]
+  }'
+
+  ### delete  user by id
+DELETE url HTTP/1.1 http://localhost:8080/cse341-project/users/65259351b94db1233da25ad2
