@@ -22,7 +22,7 @@
         }
       }
     },
-    "/cse341-project/tasks": {
+    "/tasks": {
       "post": {
         "description": "",
         "parameters": [
@@ -81,7 +81,7 @@
         }
       }
     },
-    "/cse341-project/tasks/{id}": {
+    "/tasks/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -191,7 +191,7 @@
         }
       }
     },
-    "/cse341-project/users": {
+    "/users": {
       "post": {
         "description": "",
         "parameters": [
@@ -247,7 +247,7 @@
         }
       }
     },
-    "/cse341-project/users/{id}": {
+    "/users/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -357,7 +357,7 @@
         }
       }
     },
-    "/cse341-project/project": {
+    "/project": {
       "get": {
         "description": "",
         "responses": {
