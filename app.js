@@ -52,7 +52,7 @@ mongodb.initDb((err) => {
   } else {
     app.listen(port, () => {
       console.log(`Running and listening on Port ${port}`);
-      console.log('Database successfully initialize');
+      console.log('Database successfully initialized');
     });
   }
 });
