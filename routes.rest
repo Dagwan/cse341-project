@@ -1,4 +1,4 @@
-// LOCALHOST
+// LOCAL
 ### create Task
 curl -X POST \
   'http://localhost:8080/cse341-project/tasks' \
@@ -41,7 +41,7 @@ curl -X PUT \
 DELETE url HTTP/1.1 http://localhost:8080/cse341-project/tasks/652593d1b94db1233da25ad3
 
 
-// LOCALHOST
+// LOCAL
 // create user
 ###
 curl -X POST \
@@ -85,3 +85,89 @@ curl -X PUT \
 
   ### delete  user by id
 DELETE url HTTP/1.1 http://localhost:8080/cse341-project/users/65259351b94db1233da25ad2
+
+
+#................................................................................................
+
+### PRODUCTION TASKS
+### Create task
+POST https://cse341-project-gqaa.onrender.com/tasks
+Content-Type: application/json
+{
+  "title": "New Task Title",
+  "description": "New Task Description",
+  "dueDate": "2023-12-31T23:59:59.999Z",
+  "priority": "High",
+  "completed": false,
+  "createdBy": "userObjectId",
+  "tags": ["tag1", "tag2"]
+}
+
+### Get all tasks
+https://cse341-project-gqaa.onrender.com/tasks
+
+
+### Get task by id
+GET https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
+
+
+### Update task by id
+PUT https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
+Content-Type: application/json
+{
+  "title": "Updated Task Title1",
+  "description": "Updated Task Description",
+  "dueDate": "2023-12-31T23:59:59.999Z",
+  "priority": "High",
+  "completed": true,
+  "createdBy": "userObjectId",
+  "tags": ["tag1", "tag2"]
+}
+
+
+### Delete task by id
+DELETE https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
+
+
+
+
+### PRODUCTION USERS
+### Create user
+POST https://cse341-project-gqaa.onrender.com/users
+Content-Type: application/json
+{
+  "name": "New User Name",
+  "title": "New User Title",
+  "description": "New User Description",
+  "dueDate": "2023-12-31T23:59:59.999Z",
+  "priority": "High",
+  "completed": false,
+  "createdBy": "userObjectId",
+  "tags": ["tag1", "tag2"]
+}
+
+### Get all users
+https://cse341-project-gqaa.onrender.com/users
+
+
+
+### Get user by id
+GET https://cse341-project-gqaa.onrender.com/users/65259351b94db1233da25ad2
+
+
+### Update user by id
+PUT https://cse341-project-gqaa.onrender.com/users/65259351b94db1233da25ad2
+Content-Type: application/json
+{
+  "name": "Updated User Name",
+  "title": "Updated User Title",
+  "description": "Updated User Description",
+  "dueDate": "2023-12-31T23:59:59.999Z",
+  "priority": "High",
+  "completed": true,
+  "createdBy": "userObjectId",
+  "tags": ["tag1", "tag2"]
+}
+
+### Delete a user
+DELETE https://cse341-project-gqaa.onrender.com/users/65259351b94db1233da25ad2
