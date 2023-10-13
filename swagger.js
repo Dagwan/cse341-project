@@ -2,7 +2,7 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'Contact API',
+    title: 'Task Management API',
     description:
       'API documentation for the Tasks API. This API is designed to help you efficiently manage your Tasks information...',
     version: '1.0.0'
