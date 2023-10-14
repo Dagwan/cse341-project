@@ -134,7 +134,7 @@ DELETE https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
 
 ### PRODUCTION USERS
 ### Create user
-POST https://cse341-project-gqaa.onrender.com/users HTTP.1
+POST https://cse341-project-gqaa.onrender.com/users 
 Content-Type: application/json
 {
   "name": "New User Name",
