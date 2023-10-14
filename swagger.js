@@ -1,6 +1,6 @@
 const swaggerAutogen = require('swagger-autogen')();
 require('./models/taskModel');
-require('./models/userModel'); 
+require('./models/userModel');
 
 const doc = {
   info: {
@@ -21,8 +21,8 @@ const doc = {
         dueDate: { type: 'string' },
         priority: { type: 'string' },
         completed: { type: 'boolean' },
-        createdBy: { type: 'string' }, 
-        tags: { type: 'array', items: { type: 'string' } },
+        createdBy: { type: 'string' },
+        tags: { type: 'array', items: { type: 'string' } }
       }
     },
     User: {
@@ -34,7 +34,7 @@ const doc = {
         password: { type: 'string' },
         registrationDate: { type: 'string' },
         role: { type: 'string' },
-        status: { type: 'string' },
+        status: { type: 'string' }
       }
     }
   }
@@ -46,7 +46,6 @@ const endpointsFiles = ['./routes/index.js'];
 // generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
 console.log('Swagger runs successfully');
-
 
 // const swaggerAutogen = require('swagger-autogen')();
 

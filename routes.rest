@@ -1,30 +1,31 @@
 // LOCAL
 ### create Task
 curl -X POST \
-  'http://localhost:8080/cse341-project/tasks' \
+  'http://localhost:8080/tasks' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "title": "New Task Title",
-    "description": "New Task Description",
-    "dueDate": "2023-12-31T23:59:59.999Z",
-    "priority": "High",
-    "completed": false,
-    "createdBy": "userObjectId",
-    "tags": ["tag1", "tag2"]
-  }'
+  "name": "Sample Task",
+  "title": "Task Title",
+  "description": "Task Description",
+  "dueDate": "2023-10-20",
+  "priority": "High",
+  "completed": false,
+  "createdBy": "user123",  
+  "tags": ["Tag1", "Tag2"]
+}'
   
 
 ### get all tasks
-GET http://localhost:8080/cse341-project/tasks
+GET http://localhost:8080/tasks
 
 ### get task by id
-GET http://localhost:8080/cse341-project/tasks/652593d1b94db1233da25ad3
+GET http://localhost:8080/tasks/65253714ffa6842af4c3e46f
 
 
-### create User
+### create task
 curl -X PUT \
-  'http://localhost:8080/cse341-project/tasks/652593d1b94db1233da25ad3' \
+  'http://localhost:8080/tasks/65253714ffa6842af4c3e46f' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -38,38 +39,38 @@ curl -X PUT \
   }'
 
   ### get task by id
-DELETE url HTTP/1.1 http://localhost:8080/cse341-project/tasks/652593d1b94db1233da25ad3
+DELETE url HTTP/1.1 http://localhost:8080/tasks/652593d1b94db1233da25ad3
 
 
 // LOCAL
 // create user
 ###
 curl -X POST \
-  'http://localhost:8080/cse341-project/users' \
+  'http://localhost:8080/users' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "New User Name",
-    "title": "New User Title",
-    "description": "New User Description",
-    "dueDate": "2023-12-31T23:59:59.999Z",
-    "priority": "High",
-    "completed": false,
-    "createdBy": "userObjectId",
-    "tags": ["tag1", "tag2"]
-  }'
+  "name": "Sample User",
+  "email": "sample@example.com",
+  "username": "sampleuser",
+  "password": "samplepassword",
+  "registrationDate": "2023-10-20",
+  "role": "User",
+  "status": "Active",
+  "tasks": ["task456", "task789"]  
+}'
 
 
 ### get all users
-GET http://localhost:8080/cse341-project/users
+GET http://localhost:8080/users
 
 ### get  user by id
-GET http://localhost:8080/cse341-project/users/65259351b94db1233da25ad2
+GET http://localhost:8080/users/652566420591a02a58b7a3bf
 
 
 ### update users
 curl -X PUT \
-  'http://localhost:8080/cse341-project/users/65259351b94db1233da25ad2' \
+  'http://localhost:8080/users/65259351b94db1233da25ad2' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -108,7 +109,7 @@ https://cse341-project-gqaa.onrender.com/tasks
 
 
 ### Get task by id
-GET https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
+GET https://cse341-project-gqaa.onrender.com/tasks/65253714ffa6842af4c3e46f
 
 
 ### Update task by id
@@ -133,7 +134,7 @@ DELETE https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
 
 ### PRODUCTION USERS
 ### Create user
-POST https://cse341-project-gqaa.onrender.com/users
+POST https://cse341-project-gqaa.onrender.com/users HTTP.1
 Content-Type: application/json
 {
   "name": "New User Name",
