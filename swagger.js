@@ -10,7 +10,7 @@ const doc = {
     version: '1.0.0'
   },
   host: 'cse341-project-gqaa.onrender.com',
-  schemes: ['http', 'https'],
+  schemes: ['https'],
   definitions: {
     Task: {
       type: 'object',
