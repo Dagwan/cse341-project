@@ -9,7 +9,7 @@ const doc = {
       'API documentation for the Tasks API. This API is designed to help you efficiently manage your Tasks information...',
     version: '1.0.0'
   },
-  host: 'localhost:8080',
+  host: 'cse341-project-gqaa.onrender.com',
   schemes: ['http', 'https'],
   definitions: {
     Task: {
