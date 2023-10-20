@@ -20,7 +20,7 @@ curl -X POST \
 GET http://localhost:8080/tasks
 
 ### get task by id
-GET http://localhost:8080/tasks/6532546382186ced6b305ca3
+GET http://localhost:8080/tasks/6532599eb3fefb7d301f7781
 
 
 ### udate task
@@ -96,16 +96,16 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "name": "Dagwan P",
-  "title": "Mr",
-  "description": "Testing the project",
-  "dueDate": "2023",
-  "priority": "Important",
-  "completed": "Yes",
-  "createdBy": "Dagwan",
-  "tags": "Owner"
-}'
-
+    "name": "Task 20",
+    "title": "Task 20",
+    "description": "Description for Task 20",
+    "dueDate": "2023-12-31T23:59:59.999Z",
+    "priority": "Medium",
+    "completed": true,
+    "createdBy": "609c2315bace712ec96dfb20", 
+    "tags": ["tag39", "tag40"]
+  }'
+  
 ### Get all tasks
 https://cse341-project-gqaa.onrender.com/tasks
 
@@ -144,14 +144,14 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "name": "Dagwan P",
-  "email": "dagwanpan@gmail.com",
-  "username": "dagwanp",
-  "password": "dagwanp",
-  "registrationDate": "2023",
-  "role": "Owner",
-  "status": "Active"
-}'
+    "name": "Alice Johnson",
+    "email": "alice@gmail.com.com",
+    "username": "alice123",
+    "password": "password123",
+    "registrationDate": "2023-10-22T12:00:00.000Z",
+    "role": "user",
+    "status": "active"
+  }'
 
 ### Get all users
 https://cse341-project-gqaa.onrender.com/users
@@ -164,17 +164,18 @@ GET https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576
 
 ### Update user by id
 curl -X 'PUT' \
-  'https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576' \
+  'https://cse341-project-gqaa.onrender.com/users/65325a7fb3fefb7d301f7783' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "name": "DagwanP",
-  "email": "dagwanpan@gmail.com",
-  "username": "dagwan",
-  "password": "dagwan",
-  "registrationDate": "2022",
-  "role": "Owner",
-  "status": "Active"
-}'
+    "name": "Jane Smith",
+    "email": "janesmith@gmail.com.com",
+    "username": "janesmith123",
+    "password": "anotherpassword",
+    "registrationDate": "2023-10-21T12:00:00.000Z",
+    "role": "user",
+    "status": "active"
+  }'
+
 ### Delete a user
 DELETE https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576
