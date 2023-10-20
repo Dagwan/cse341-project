@@ -47,28 +47,6 @@ const endpointsFiles = ['./routes/index.js'];
 swaggerAutogen(outputFile, endpointsFiles, doc);
 console.log('Swagger runs successfully');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const swaggerAutogen = require('swagger-autogen')();
 
 // const doc = {

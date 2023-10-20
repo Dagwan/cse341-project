@@ -10,7 +10,7 @@ const validateCreateUser = [
   body('password').notEmpty().withMessage('Password is required'),
   body('registrationDate').isISO8601().withMessage('Registration date must be a valid date'),
   body('role').notEmpty().withMessage('Role is required'),
-  body('status').notEmpty().withMessage('Status is required'),
+  body('status').notEmpty().withMessage('Status is required')
 ];
 
 // Middleware for handling validation errors
@@ -33,7 +33,7 @@ const createUser = async (req, res) => {
       password: req.body.password,
       registrationDate: req.body.registrationDate,
       role: req.body.role,
-      status: req.body.status,
+      status: req.body.status
     };
 
     // Insert the user into the MongoDB collection
@@ -65,9 +65,6 @@ const createUser = async (req, res) => {
     }
   }
 };
-
-
-
 
 // Get all users
 const getAllUsers = async (req, res) => {
@@ -117,7 +114,7 @@ const updateUser = async (req, res) => {
       password: req.body.password,
       registrationDate: req.body.registrationDate,
       role: req.body.role,
-      status: req.body.status,
+      status: req.body.status
     };
 
     if (!ObjectId.isValid(userId)) {
@@ -132,7 +129,9 @@ const updateUser = async (req, res) => {
       .findOne({ $or: [{ email: userData.email }, { username: userData.username }] });
 
     if (existingUser && existingUser._id.toString() !== userId) {
-      return res.status(400).json({ error: 'A user with the same email or username already exists.' });
+      return res
+        .status(400)
+        .json({ error: 'A user with the same email or username already exists.' });
     }
 
     // Update the user in the MongoDB collection
@@ -152,8 +151,6 @@ const updateUser = async (req, res) => {
     res.status(500).json({ error: 'An error occurred while updating the user.' });
   }
 };
-
-
 
 // Delete a user by ID
 const deleteUser = async (req, res) => {
@@ -188,35 +185,8 @@ module.exports = {
   updateUser,
   deleteUser,
   validateCreateUser, // Export the validation middleware
-  handleValidationErrors, // Export the error handling middleware
+  handleValidationErrors // Export the error handling middleware
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // //const User = require('../models/userModel');
 // const { ObjectId } = require('mongodb');
@@ -235,7 +205,6 @@ module.exports = {
 //   role: req.body.role,
 //   status: req.body.status,
 // };
-
 
 //     // Insert the user into the MongoDB collection
 //     const result = await mongodb.getDb().db().collection('users').insertOne(userData);
@@ -300,7 +269,7 @@ module.exports = {
 //       dueDate: req.body.dueDate,
 //       priority: req.body.priority,
 //       completed: req.body.completed,
-//       createdBy: req.body.createdBy, 
+//       createdBy: req.body.createdBy,
 //       tags: req.body.tags,
 //     };
 

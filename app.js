@@ -28,7 +28,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // Use express-session middleware
 app.use(
   session({

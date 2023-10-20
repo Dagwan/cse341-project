@@ -15,7 +15,11 @@ router.post('/tasks', [
   body('dueDate').isISO8601().withMessage('Due date must be a valid date'),
   body('priority').notEmpty().withMessage('Priority is required'),
   body('completed').isBoolean().withMessage('Completed must be a boolean'),
-  body('createdBy').notEmpty().withMessage('CreatedBy is required').isMongoId().withMessage('Invalid createdBy ID format'),
+  body('createdBy')
+    .notEmpty()
+    .withMessage('CreatedBy is required')
+    .isMongoId()
+    .withMessage('Invalid createdBy ID format'),
   body('tags').isArray().withMessage('Tags must be an array'),
   // Error handling middleware for validation errors
   (req, res, next) => {
@@ -26,7 +30,7 @@ router.post('/tasks', [
     // If validation passes, proceed to create the task
     return next();
   },
-  tasksController.createTask, // Call the controller method to create a task
+  tasksController.createTask // Call the controller method to create a task
 ]);
 
 router.get('/tasks', tasksController.getAllTasks);
@@ -53,7 +57,7 @@ router.post('/users', [
     // If validation passes, proceed to create the user
     return next();
   },
-  usersController.createUser, // Call the controller method to create a user
+  usersController.createUser // Call the controller method to create a user
 ]);
 
 router.get('/users', usersController.getAllUsers);
@@ -68,30 +72,6 @@ router.get('/project', passport.authenticate('google'), (req, res) => {
 });
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // Import passport module
 // const express = require('express');

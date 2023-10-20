@@ -10,8 +10,12 @@ const validateCreateTask = [
   body('dueDate').isISO8601().withMessage('Due date must be a valid date'),
   body('priority').notEmpty().withMessage('Priority is required'),
   body('completed').isBoolean().withMessage('Completed must be a boolean'),
-  body('createdBy').notEmpty().withMessage('CreatedBy is required').isMongoId().withMessage('Invalid createdBy ID format'),
-  body('tags').isArray().withMessage('Tags must be an array'),
+  body('createdBy')
+    .notEmpty()
+    .withMessage('CreatedBy is required')
+    .isMongoId()
+    .withMessage('Invalid createdBy ID format'),
+  body('tags').isArray().withMessage('Tags must be an array')
 ];
 
 // Middleware for handling validation errors
@@ -40,7 +44,7 @@ const createTask = async (req, res) => {
 
     // Insert the task into the MongoDB collection
     const collection = mongodb.getDb().db().collection('tasks');
-    
+
     // Create unique indexes for createdBy, name, title, and priority
     await collection.createIndex({ createdBy: 1 }, { unique: true });
     await collection.createIndex({ name: 1 }, { unique: true });
@@ -73,7 +77,6 @@ const createTask = async (req, res) => {
     }
   }
 };
-
 
 // Get all tasks
 const getAllTasks = async (req, res) => {
@@ -181,34 +184,8 @@ module.exports = {
   updateTask,
   deleteTask,
   validateCreateTask, // Export the validation middleware
-  handleValidationErrors, // Export the error handling middleware
+  handleValidationErrors // Export the error handling middleware
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const { ObjectId } = require('mongodb');
 // const mongodb = require('../db/db');
