@@ -5,13 +5,14 @@ curl -X POST \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "title": "New Task Title",
-    "description": "New Task Description",
+    "name": "Task 20",
+    "title": "Task 20",
+    "description": "Description for Task 20",
     "dueDate": "2023-12-31T23:59:59.999Z",
-    "priority": "High",
-    "completed": false,
-    "createdBy": "userObjectId",
-    "tags": ["tag1", "tag2"]
+    "priority": "Medium",
+    "completed": true,
+    "createdBy": "609c2315bace712ec96dfb20", 
+    "tags": ["tag39", "tag40"]
   }'
   
 
@@ -19,26 +20,27 @@ curl -X POST \
 GET http://localhost:8080/tasks
 
 ### get task by id
-GET http://localhost:8080/tasks/652593d1b94db1233da25ad3
+GET http://localhost:8080/tasks/6532546382186ced6b305ca3
 
 
-### create User
+### udate task
 curl -X PUT \
-  'http://localhost:8080/tasks/652593d1b94db1233da25ad3' \
+  'http://localhost:8080/tasks/6532546382186ced6b305ca3' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "title": "Updated Task Title1",
-    "description": "Updated Task Description",
+    "name": "Task 19",
+    "title": "Task 19",
+    "description": "Description for Task 19",
     "dueDate": "2023-12-31T23:59:59.999Z",
     "priority": "High",
-    "completed": true,
-    "createdBy": "userObjectId",
-    "tags": ["tag1", "tag2"]
+    "completed": false,
+    "createdBy": "609c2315bace712eb96dfb19", 
+    "tags": ["tag37", "tag38"]
   }'
 
-  ### get task by id
-DELETE url HTTP/1.1 http://localhost:8080/tasks/652593d1b94db1233da25ad3
+#### delete task by id
+DELETE http://localhost:8080/tasks/6532546382186ced6b305ca3
 
 
 // LOCAL
@@ -49,14 +51,13 @@ curl -X POST \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "New User Name",
-    "title": "New User Title",
-    "description": "New User Description",
-    "dueDate": "2023-12-31T23:59:59.999Z",
-    "priority": "High",
-    "completed": false,
-    "createdBy": "userObjectId",
-    "tags": ["tag1", "tag2"]
+    "name": "Alice Johnson",
+    "email": "alice@gmail.com.com",
+    "username": "alice123",
+    "password": "password123",
+    "registrationDate": "2023-10-22T12:00:00.000Z",
+    "role": "user",
+    "status": "active"
   }'
 
 
@@ -64,87 +65,93 @@ curl -X POST \
 GET http://localhost:8080/users
 
 ### get  user by id
-GET http://localhost:8080/users/65259351b94db1233da25ad2
+GET http://localhost:8080/users/6532567e512e36f921a2bfa4
 
 
 ### update users
 curl -X PUT \
-  'http://localhost:8080/users/65259351b94db1233da25ad2' \
+  'http://localhost:8080/users/6532529682186ced6b305ca1' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "Updated User Name",
-    "title": "Updated User Title",
-    "description": "Updated User Description",
-    "dueDate": "2023-12-31T23:59:59.999Z",
-    "priority": "High",
-    "completed": true,
-    "createdBy": "userObjectId",
-    "tags": ["tag1", "tag2"]
+    "name": "Jane Smith",
+    "email": "janesmith@gmail.com.com",
+    "username": "janesmith123",
+    "password": "anotherpassword",
+    "registrationDate": "2023-10-21T12:00:00.000Z",
+    "role": "user",
+    "status": "active"
   }'
 
-  ### delete  user by id
-DELETE url HTTP/1.1 http://localhost:8080/users/65259351b94db1233da25ad2
+### delete  user by id
+DELETE http://localhost:8080/users/6532529682186ced6b305ca1
 
 
 #................................................................................................
 
 ### PRODUCTION TASKS
 ### Create task
-POST https://cse341-project-gqaa.onrender.com/tasks
-Content-Type: application/json
-{
-  "title": "New Task Title",
-  "description": "New Task Description",
-  "dueDate": "2023-12-31T23:59:59.999Z",
-  "priority": "High",
-  "completed": false,
-  "createdBy": "userObjectId",
-  "tags": ["tag1", "tag2"]
-}
+curl -X 'POST' \
+  'https://cse341-project-gqaa.onrender.com/tasks' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "Dagwan P",
+  "title": "Mr",
+  "description": "Testing the project",
+  "dueDate": "2023",
+  "priority": "Important",
+  "completed": "Yes",
+  "createdBy": "Dagwan",
+  "tags": "Owner"
+}'
 
 ### Get all tasks
 https://cse341-project-gqaa.onrender.com/tasks
 
 
 ### Get task by id
-GET https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
+GET https://cse341-project-gqaa.onrender.com/tasks/652ab8d9dbbe1126a8c1a575
 
 
 ### Update task by id
-PUT https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
-Content-Type: application/json
-{
-  "title": "Updated Task Title1",
-  "description": "Updated Task Description",
-  "dueDate": "2023-12-31T23:59:59.999Z",
-  "priority": "High",
-  "completed": true,
-  "createdBy": "userObjectId",
-  "tags": ["tag1", "tag2"]
-}
+curl -X 'PUT' \
+  'https://cse341-project-gqaa.onrender.com/tasks/652ab8d9dbbe1126a8c1a575' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "Dagwan",
+  "title": "Mrs",
+  "description": "Testing",
+  "dueDate": "2023",
+  "priority": "Important",
+  "completed": "Yes",
+  "createdBy": "Dagwan",
+  "tags": "Owner"
+}'
 
 
 ### Delete task by id
-DELETE https://cse341-project-gqaa.onrender.com/tasks/652593d1b94db1233da25ad3
+DELETE https://cse341-project-gqaa.onrender.com/tasks/652ab8d9dbbe1126a8c1a575
 
 
 
 
 ### PRODUCTION USERS
 ### Create user
-POST https://cse341-project-gqaa.onrender.com/users
-Content-Type: application/json
-{
-  "name": "New User Name",
-  "title": "New User Title",
-  "description": "New User Description",
-  "dueDate": "2023-12-31T23:59:59.999Z",
-  "priority": "High",
-  "completed": false,
-  "createdBy": "userObjectId",
-  "tags": ["tag1", "tag2"]
-}
+curl -X 'POST' \
+  'https://cse341-project-gqaa.onrender.com/users' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "Dagwan P",
+  "email": "dagwanpan@gmail.com",
+  "username": "dagwanp",
+  "password": "dagwanp",
+  "registrationDate": "2023",
+  "role": "Owner",
+  "status": "Active"
+}'
 
 ### Get all users
 https://cse341-project-gqaa.onrender.com/users
@@ -152,22 +159,22 @@ https://cse341-project-gqaa.onrender.com/users
 
 
 ### Get user by id
-GET https://cse341-project-gqaa.onrender.com/users/65259351b94db1233da25ad2
+GET https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576
 
 
 ### Update user by id
-PUT https://cse341-project-gqaa.onrender.com/users/65259351b94db1233da25ad2
-Content-Type: application/json
-{
-  "name": "Updated User Name",
-  "title": "Updated User Title",
-  "description": "Updated User Description",
-  "dueDate": "2023-12-31T23:59:59.999Z",
-  "priority": "High",
-  "completed": true,
-  "createdBy": "userObjectId",
-  "tags": ["tag1", "tag2"]
-}
-
+curl -X 'PUT' \
+  'https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "DagwanP",
+  "email": "dagwanpan@gmail.com",
+  "username": "dagwan",
+  "password": "dagwan",
+  "registrationDate": "2022",
+  "role": "Owner",
+  "status": "Active"
+}'
 ### Delete a user
-DELETE https://cse341-project-gqaa.onrender.com/users/65259351b94db1233da25ad2
+DELETE https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576

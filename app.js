@@ -28,8 +28,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Initialize Passport middleware
-app.use(passport.initialize());
 
 // Use express-session middleware
 app.use(
@@ -39,6 +37,8 @@ app.use(
     saveUninitialized: true
   })
 );
+// Initialize Passport middleware
+app.use(passport.initialize());
 
 // Use Passport session middleware after express-session
 app.use(passport.session());

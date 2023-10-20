@@ -63,6 +63,9 @@
           "201": {
             "description": "Created"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -229,6 +232,9 @@
           "201": {
             "description": "Created"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -290,25 +296,22 @@
                 "name": {
                   "example": "any"
                 },
-                "title": {
+                "email": {
                   "example": "any"
                 },
-                "description": {
+                "username": {
                   "example": "any"
                 },
-                "dueDate": {
+                "password": {
                   "example": "any"
                 },
-                "priority": {
+                "registrationDate": {
                   "example": "any"
                 },
-                "completed": {
+                "role": {
                   "example": "any"
                 },
-                "createdBy": {
-                  "example": "any"
-                },
-                "tags": {
+                "status": {
                   "example": "any"
                 }
               }
