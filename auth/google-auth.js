@@ -12,6 +12,7 @@ passport.use(
     },
     (accessToken, refreshToken, profile, done) => {
       console.log(profile)
+      
       // This function handles user creation and login logic based on the Google profile information
       // Check if the user exists, create a user, or log in the user
       // Call 'done' to complete the authentication process
