@@ -27,6 +27,7 @@ const createUser = async (req, res) => {
   try {
     // Extract user data from the request body
     const userData = {
+      googleId: req.body.googleId,
       name: req.body.name,
       email: req.body.email,
       username: req.body.username,

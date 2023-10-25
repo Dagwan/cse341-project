@@ -84,7 +84,7 @@ curl -X PUT \
   }'
 
 ### delete  user by id
-DELETE http://localhost:8080/users/6532e9273fd28700e1c56799
+DELETE http://localhost:8080/users/653921ac370ce96ff2d741fb
 
 
 #................................................................................................

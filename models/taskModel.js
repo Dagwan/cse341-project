@@ -4,7 +4,7 @@ const taskSchema = new mongoose.Schema({
   name: {
     type: String,
     unique: true,
-    required: true // Ensure the name field is required
+    required: true 
   },
   title: String,
   description: String,

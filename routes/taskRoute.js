@@ -65,11 +65,21 @@ router.get('/users/:id', usersController.getSingleUser);
 router.put('/users/:id', usersController.updateUser);
 router.delete('/users/:id', usersController.deleteUser);
 
-// Protect a route with Google OAuth authentication
-router.get('/project', passport.authenticate('google'), (req, res) => {
-  // This route is protected and can only be accessed by authenticated Google users
-  res.json({ message: 'Protected route accessed successfully' });
-});
+// Protect/get a route with Google OAuth authentication
+router.get(
+  '/google', 
+  passport.authenticate('google', { scope: ['profile'] }));
+
+
+// Protect/get a callback
+router.get(
+  '/auth/google/callback', 
+  passport.authenticate('google', {failureRedirect: '/'}),  
+  (req, res) => {
+  res.json({ message: 'Protected route accessed successfully and redirect back to the the home page' });
+})
+  
+  
 
 module.exports = router;
 

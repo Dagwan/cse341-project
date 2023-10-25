@@ -1,11 +1,11 @@
+const passport = require('passport');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/db');
 const cors = require('cors');
-const passport = require('passport');
-const session = require('express-session'); // Add this line
+const session = require('express-session');
 require('dotenv').config();
-require('./auth/google-auth');
+require('./auth/google-auth'); 
 
 const port = process.env.PORT || 8080;
 const app = express();

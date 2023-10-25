@@ -4,7 +4,7 @@ const mongodb = require('../db/db');
 
 // Validation middleware for task creation
 const validateCreateTask = [
-  body('name').notEmpty().withMessage('Name is required'),
+  body('zname').notEmpty().withMessage('Name is required'),
   body('title').notEmpty().withMessage('Title is required'),
   body('description').notEmpty().withMessage('Description is required'),
   body('dueDate').isISO8601().withMessage('Due date must be a valid date'),
