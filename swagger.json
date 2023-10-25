@@ -203,6 +203,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "googleId": {
+                  "example": "any"
+                },
                 "name": {
                   "example": "any"
                 },
@@ -359,7 +362,17 @@
         }
       }
     },
-    "/project": {
+    "/google": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/google/callback": {
       "get": {
         "description": "",
         "responses": {
