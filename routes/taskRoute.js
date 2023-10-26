@@ -66,7 +66,6 @@ router.put('/users/:id', usersController.updateUser);
 router.delete('/users/:id', usersController.deleteUser);
 
 // Protect/get a route with Google OAuth authentication
-// Protect a route with Google OAuth authentication
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
 // Protect a callback
