@@ -66,18 +66,17 @@ router.put('/users/:id', usersController.updateUser);
 router.delete('/users/:id', usersController.deleteUser);
 
 // Protect/get a route with Google OAuth authentication
-router.get(
-  '/google', 
-  passport.authenticate('google', { scope: ['profile'] }));
+// Protect a route with Google OAuth authentication
+router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
-
-// Protect/get a callback
+// Protect a callback
 router.get(
-  '/auth/google/callback', 
-  passport.authenticate('google', {failureRedirect: '/'}),  
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-  res.json({ message: 'Protected route accessed successfully and redirect back to the the home page' });
-})
+    res.json({ message: 'Protected route accessed successfully and redirect back to the home page' });
+  }
+);
   
   
 
