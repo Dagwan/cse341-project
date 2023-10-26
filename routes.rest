@@ -65,7 +65,7 @@ curl -X POST \
 GET http://localhost:8080/users
 
 ### get  user by id
-GET http://localhost:8080/users/6532e9273fd28700e1c56799
+GET http://localhost:8080/users/653a52fb55c492a70e4b961a
 
 
 ### update users
