@@ -1,6 +1,7 @@
 const { ObjectId } = require('mongodb');
 const { body, validationResult } = require('express-validator');
 const mongodb = require('../db/db');
+const bcrypt = require('bcrypt');
 
 // Validation middleware for user creation
 const validateCreateUser = [
@@ -27,11 +28,11 @@ const createUser = async (req, res) => {
   try {
     // Extract user data from the request body
     const userData = {
-      googleId: req.body.googleId,
       name: req.body.name,
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password,
+      // Hash the password
+      password: await bcrypt.hash(req.body.password, 10),
       registrationDate: req.body.registrationDate,
       role: req.body.role,
       status: req.body.status

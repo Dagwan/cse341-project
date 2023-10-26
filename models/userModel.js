@@ -1,70 +1,21 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  googleId: {
-    type: String,
-    required: true,
-  },
-  displayName: {
-    type: String,
-    required: true,
-  },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  image: {
-    type: String,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-
-  name: {
-    type: String,
-    required: true
-  },
-
+  googleId: String, // For Google OAuth users
+  name: String,
+  email: String,
   username: {
     type: String,
-    required: true,
-    unique: true  
+    unique: true
   },
-  
-  password: {
-    type: String,
-    required: true
-  },
-
-  registrationDate: {
-    type: Date,
-    default: Date.now
-  },
-
-  role: {
-    type: String,
-    required: true
-  },
-  
-  status: {
-    type: String,
-    required: true
-  },
-
-  picture: {
-    type: String,
-    required: true
-  }
+  password: String, // Hashed password
+  registrationDate: Date,
+  role: String,
+  status: String
 });
 
-// Create an index on the googleId field
-userSchema.index({ googleId: 1 }, { unique: true });
-
+// Create an index on the email field
+userSchema.index({ email: 1 }, { unique: true });
 
 module.exports = mongoose.model('Users', userSchema);
 
