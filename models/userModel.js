@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
   role: String,
   status: String
 });
+userSchema.index({ googleId: 1 }, { unique: true });
 
 module.exports = mongoose.model('Users', userSchema);
 
