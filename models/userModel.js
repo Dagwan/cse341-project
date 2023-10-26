@@ -14,9 +14,6 @@ const userSchema = new mongoose.Schema({
   status: String
 });
 
-// Create an index on the email field
-userSchema.index({ email: 1 }, { unique: true });
-
 module.exports = mongoose.model('Users', userSchema);
 
 
