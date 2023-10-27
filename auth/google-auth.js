@@ -1,7 +1,8 @@
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy
 const Users = require('../models/userModel');
 
-module.exports = function(passport) {
+
+module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(
       {
@@ -16,29 +17,23 @@ module.exports = function(passport) {
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
           image: profile.photos[0].value,
-        };
+        }
 
         try {
-          const user = await Users.findOne({ googleId: profile.id });
-          
-          if (!user) {
-            const createdUser = await Users.create(newUser);
-          }
-        
+          let user = await Users.findOne({ googleId: profile.id })
+
           if (user) {
             done(null, user);
           } else {
-            const createdUser = await Users.create(newUser);
-            done(null, createdUser);
+            user = await Users.create(newUser);
+            done(null, user);
           }
         } catch (err) {
           console.error(err);
-          done(err);
         }
-        
       }
     )
-  );
+  )
 
   passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -47,7 +42,7 @@ module.exports = function(passport) {
   passport.deserializeUser((id, done) => {
     Users.findById(id, (err, user) => done(err, user));
   });
-};
+}
 
 
 
