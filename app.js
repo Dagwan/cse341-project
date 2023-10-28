@@ -12,9 +12,9 @@ require('events').EventEmitter.defaultMaxListeners = 15;
 const port = process.env.PORT || 8080;
 const app = express();
 
-// Enable CORS for specific origins
+// Enable CORS for  origins
 const corsOptions = {
-  origin: 'http://localhost:8080',
+  origin: '*', // Allow requests from any origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
