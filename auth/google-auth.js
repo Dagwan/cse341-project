@@ -1,5 +1,6 @@
 require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
+require('mongoose');
 const Users = require('../models/userModel');
 
 
