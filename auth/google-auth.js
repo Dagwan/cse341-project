@@ -1,50 +1,121 @@
-require('passport')
-const GoogleStrategy = require('passport-google-oauth20').Strategy
-require('mongoose');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const mongoose = require('mongoose');
 const Users = require('../models/userModel');
 
-
 module.exports = function (passport) {
-  passport.use(
-    new GoogleStrategy(
-      {
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: '/auth/google/callback',
-      },
-      async (accessToken, refreshToken, profile, done) => {
-        const newUser = {
-          googleId: profile.id,
-          displayName: profile.displayName,
-          firstName: profile.name.givenName,
-          lastName: profile.name.familyName,
-          image: profile.photos[0].value,
-        }
+  // First, establish the MongoDB connection
+  mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 
-        try {
-          let user = await Users.findOne({ googleId: profile.id })
+  const db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+  db.once('open', () => {
+    console.log('Connected to MongoDB successfully.');
 
-          if (user) {
-            done(null, user);
-          } else {
-            user = await Users.create(newUser);
-            done(null, user);
+    passport.use(
+      new GoogleStrategy(
+        {
+          clientID: process.env.GOOGLE_CLIENT_ID,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+          callbackURL: '/auth/google/callback',
+        },
+        async (accessToken, refreshToken, profile, done) => {
+          //console.log(profile);
+          const newUser = {
+            googleId: profile.id,
+            displayName: profile.displayName,
+            firstName: profile.name.givenName,
+            lastName: profile.name.familyName,
+            image: profile.photos[0].value,
+          };
+          
+          try {
+            let user = await Users.findOne({ googleId: profile.id });
+
+            if (user) {
+              done(null, user);
+            } else {
+              user = await Users.create(newUser);
+              done(null, user);
+            }
+          } catch (err) {
+            console.error(err);
           }
-        } catch (err) {
-          console.error(err);
         }
+      )
+    );
+
+    passport.serializeUser((user, done) => {
+      done(null, user.id);
+    });
+    
+
+    passport.deserializeUser(async (id, done) => {
+      try {
+        const user = await Users.findById(id);
+        done(null, user);
+      } catch (err) {
+        done(err, null);
       }
-    )
-  )
+    });
+  }); 
 
-  passport.serializeUser((user, done) => {
-    done(null, user.id);
-  });
+}; 
+    
 
-  passport.deserializeUser((id, done) => {
-    Users.findById(id, (err, user) => done(err, user));
-  });
-}
+
+
+
+// require('passport')
+// const GoogleStrategy = require('passport-google-oauth20').Strategy
+// require('mongoose');
+// const Users = require('../models/userModel');
+
+
+// module.exports = function (passport) {
+//   passport.use(
+//     new GoogleStrategy(
+//       {
+//         clientID: process.env.GOOGLE_CLIENT_ID,
+//         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//         callbackURL: '/auth/google/callback'
+//       },
+//       async (accessToken, refreshToken, profile, done) => {
+//         //console.log(profile);
+//         const newUser = {
+//           googleId: profile.id,
+//           displayName: profile.displayName,
+//           firstName: profile.name.givenName,
+//           lastName: profile.name.familyName,
+//           image: profile.photos[0].value,
+//         }
+
+//         try {
+//           let user = await Users.findOne({ googleId: profile.id })
+
+//           if (user) {
+//             done(null, user);
+//           } else {
+//             user = await Users.create(newUser);
+//             done(null, user);
+//           }
+//         } catch (err) {
+//           console.error(err);
+//         }
+//       }
+//     )
+//   )
+
+//   passport.serializeUser((user, done) => {
+//     done(null, user.id);
+//   });
+
+//   passport.deserializeUser((id, done) => {
+//     Users.findById(id, (err, user) => done(err, user));
+//   });
+// }
 
 
 

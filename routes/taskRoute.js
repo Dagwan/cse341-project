@@ -68,14 +68,24 @@ router.delete('/users/:id', usersController.deleteUser);
 // Protect/get a route with Google OAuth authentication
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
-// Protect a callback
-router.get(
-  '/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
+router.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/error' }),
   (req, res) => {
-    res.json({ message: 'Protected route accessed successfully and redirect back to the home page' });
+    // Successful authentication
+    res.redirect('/success');
   }
 );
+
+router.get('/error', (req, res) => {
+  // Send a generic error response
+  res.status(500).json({ error: 'An error occurred during authentication.' });
+});
+
+router.get('/success', (req, res) => {
+  // Send a success response
+  res.json({ message: 'Authentication successful.' });
+});
+
   
   
 

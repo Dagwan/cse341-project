@@ -6,6 +6,8 @@ const cors = require('cors');
 const session = require('express-session');
 require('dotenv').config();
 require('./auth/google-auth')(passport); 
+require('events').EventEmitter.defaultMaxListeners = 15;
+
 
 const port = process.env.PORT || 8080;
 const app = express();
