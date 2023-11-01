@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use('/', require('./routes'));
 
 // Use the authRouter middleware
-app.use('/login', authRouter);
+app.use('/', authRouter);
 
 mongodb.initDb((err) => {
   if (err) {
