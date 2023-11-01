@@ -25,7 +25,7 @@ app.use('/', require('./routes'));
 // Use the authRouter middleware
 app.use('/', authRouter);
 
-mongodb.initDb((err) => {
+mongodb.initDb((err) =>
   if (err) {
     console.error('Error initializing database:', err);
   } else {
