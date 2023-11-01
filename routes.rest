@@ -20,12 +20,12 @@ curl -X POST \
 GET http://localhost:8080/tasks
 
 ### get task by id
-GET http://localhost:8080/tasks/6537908b445f6210060e641f
+GET http://localhost:8080/tasks/65425f25ebbbffff48ed6954
 
 
 ### udate task
 curl -X PUT \
-  'http://localhost:8080/tasks/6532e8393fd28700e1c56797' \
+  'http://localhost:8080/tasks/65425f25ebbbffff48ed6954' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -40,7 +40,7 @@ curl -X PUT \
   }'
 
 #### delete task by id
-DELETE http://localhost:8080/tasks/6537908b445f6210060e641f
+DELETE http://localhost:8080/tasks/6542600d908186bc3409af54
 
 
 // LOCAL
@@ -60,17 +60,19 @@ curl -X POST \
     "status": "active"
   }'
 
+###
+GET http://localhost:8080/profile
 
 ### get all users
 GET http://localhost:8080/users
 
 ### get  user by id
-GET http://localhost:8080/users/653a52fb55c492a70e4b961a
+GET http://localhost:8080/users/65425f6bebbbffff48ed6956
 
 
 ### update users
 curl -X PUT \
-  'http://localhost:8080/users/6532e9273fd28700e1c56799' \
+  'http://localhost:8080/users/65425f6bebbbffff48ed6956' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -84,7 +86,7 @@ curl -X PUT \
   }'
 
 ### delete  user by id
-DELETE http://localhost:8080/users/653a52fb55c492a70e4b961a
+DELETE http://localhost:8080/users/6542603b908186bc3409af56
 
 
 #................................................................................................
