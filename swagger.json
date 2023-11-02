@@ -10,6 +10,17 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "Auth0": {
+      "type": "oauth2",
+      "authorizationUrl": "https://dev-8m28xtltvhrq4ad4.us.auth0.com",
+      "flow": "implicit",
+      "scopes": {
+        "openid": "OpenID Connect",
+        "profile": "Access user profile"
+      }
+    }
+  },
   "paths": {
     "/api-docs": {
       "get": {
@@ -529,7 +540,7 @@
                 }
               }
             },
-            "googleId": {
+            "auth0Id": {
               "type": "object",
               "properties": {
                 "type": {
@@ -566,6 +577,15 @@
               }
             },
             "image": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "createdAt": {
               "type": "object",
               "properties": {
                 "type": {
@@ -633,5 +653,13 @@
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Auth0": [
+        "openid",
+        "profile"
+      ]
+    }
+  ]
 }
