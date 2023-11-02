@@ -13,7 +13,8 @@ const doc = {
   securityDefinitions: {
     Auth0: {
       type: 'oauth2',
-      authorizationUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com', 
+      authorizationUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com/authorize',
+      tokenUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com/oauth/token',
       flow: 'implicit',
       scopes: {
         openid: 'OpenID Connect',
@@ -21,6 +22,7 @@ const doc = {
       },
     },
   },
+  
   security: [{ Auth0: ['openid', 'profile'] }], // Global security requirement for all endpoints
   definitions: {
     Task: {
