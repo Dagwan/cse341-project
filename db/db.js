@@ -6,7 +6,7 @@ let _db;
 
 // Initialize the database connection
 const initDb = (callback) => {
-  if (_db) {
+  if (_db) 
     console.log('Database is already initialized!');
     return callback(null, _db);
   }
