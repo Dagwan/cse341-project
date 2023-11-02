@@ -13,18 +13,18 @@ const doc = {
   securityDefinitions: {
     Auth0: {
       type: 'oauth2',
-      authorizationUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com',
+      authorizationUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com/authorize',
+      tokenUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com/oauth/token',
       flow: 'implicit',
       scopes: {
         openid: 'OpenID Connect',
         profile: 'Access user profile',
       },
-      redirect_uri: 'https://cse341-project-gqaa.onrender.com/login',
-
+      redirect_uri: 'https://cse341-project-gqaa.onrender.com/callback',
     },
   },
   
-  security: [{ Auth0: ['openid', 'profile'] }], 
+  security: [{ Auth0: ['openid', 'profile'] }],
   definitions: {
     Task: {
       type: 'object',
@@ -125,7 +125,7 @@ const doc = {
       },
     },
   },
-};
+}
 
 const outputFile = './swagger.json';
 const endpointsFiles = ['./routes/index.js'];
