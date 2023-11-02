@@ -13,8 +13,8 @@ const doc = {
   securityDefinitions: {
     Auth0: {
       type: 'oauth2',
-      authorizationUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com/authorize',
-      tokenUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com/oauth/token',
+      authorizationUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com',
+      tokenUrl: 'https://dev-8m28xtltvhrq4ad4.us.auth0.com',
       flow: 'implicit',
       scopes: {
         openid: 'OpenID Connect',
@@ -24,7 +24,7 @@ const doc = {
     },
   },
   
-  security: [{ Auth0: ['openid', 'profile'] }],
+  security: [{ Auth0: ['openid', 'profile'] }], 
   definitions: {
     Task: {
       type: 'object',
@@ -125,7 +125,7 @@ const doc = {
       },
     },
   },
-}
+};
 
 const outputFile = './swagger.json';
 const endpointsFiles = ['./routes/index.js'];
