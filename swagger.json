@@ -14,13 +14,12 @@
     "Auth0": {
       "type": "oauth2",
       "authorizationUrl": "https://dev-8m28xtltvhrq4ad4.us.auth0.com",
-      "tokenUrl": "https://dev-8m28xtltvhrq4ad4.us.auth0.com",
       "flow": "implicit",
       "scopes": {
         "openid": "OpenID Connect",
         "profile": "Access user profile"
       },
-      "redirect_uri": "https://cse341-project-gqaa.onrender.com/callback"
+      "redirect_uri": "https://cse341-project-gqaa.onrender.com/login"
     }
   },
   "paths": {
