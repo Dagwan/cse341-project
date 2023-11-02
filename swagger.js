@@ -20,7 +20,7 @@ const doc = {
         openid: 'OpenID Connect',
         profile: 'Access user profile',
       },
-      redirect_uri: 'https://cse341-project-gqaa.onrender.com',
+      redirect_uri: 'https://cse341-project-gqaa.onrender.com/callback',
     },
   },
   
