@@ -3,7 +3,6 @@ const { body, validationResult } = require('express-validator');
 const mongodb = require('../db/db');
 const bcrypt = require('bcrypt');
 
-
 // Validation middleware for user creation
 const validateCreateUser = [
   body('name').notEmpty().withMessage('Name is required'),

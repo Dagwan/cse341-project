@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^3.12.1",
+    "axios": "^1.6.0",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -25,6 +26,8 @@
     "express-openid-connect": "^2.17.0",
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.1.0",
     "mongodb": "^4.17.1",
     "mongoose": "^7.6.3",
     "passport": "^0.6.0",
@@ -41,6 +44,5 @@
     "nodemon": "^3.0.1",
     "prettier": "^2.8.8",
     "swagger-autogen": "^2.23.6"
-  
   }
 }
