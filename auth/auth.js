@@ -74,4 +74,3 @@ db.once('open', () => {
 });
 
 module.exports = authRouter;
-

@@ -5,8 +5,9 @@ require('./models/userModel');
 const doc = {
   info: {
     title: 'Task Management API',
-    description: 'API documentation for the Tasks API. This API is designed to help you efficiently manage your Tasks information...',
-    version: '1.0.0',
+    description:
+      'API documentation for the Tasks API. This API is designed to help you efficiently manage your Tasks information...',
+    version: '1.0.0'
   },
   host: 'cse341-project-gqaa.onrender.com',
   schemes: ['https'],
@@ -18,9 +19,9 @@ const doc = {
       flow: 'implicit',
       scopes: {
         openid: 'OpenID Connect',
-        profile: 'Access user profile',
-      },
-    },
+        profile: 'Access user profile'
+      }
+    }
   },
   security: [{ Auth0: ['openid', 'profile'] }],
   definitions: {
@@ -34,8 +35,8 @@ const doc = {
         priority: { type: 'string' },
         completed: { type: 'boolean' },
         createdBy: { type: 'string' },
-        tags: { type: 'array', items: { type: 'string' } },
-      },
+        tags: { type: 'array', items: { type: 'string' } }
+      }
     },
     User: {
       type: 'object',
@@ -52,22 +53,22 @@ const doc = {
         firstName: { type: 'string' },
         lastName: { type: 'string' },
         image: { type: 'string' },
-        createdAt: { type: 'string' },
-      },
+        createdAt: { type: 'string' }
+      }
     },
     AuthRequest: {
       type: 'object',
       properties: {
         username: { type: 'string' },
-        password: { type: 'string' },
-      },
+        password: { type: 'string' }
+      }
     },
     AuthResponse: {
       type: 'object',
       properties: {
-        token: { type: 'string' },
-      },
-    },
+        token: { type: 'string' }
+      }
+    }
   },
   paths: {
     '/auth/login': {
@@ -76,11 +77,11 @@ const doc = {
         description: 'Initiate Auth0 authentication.',
         responses: {
           200: {
-            description: 'Successfully initiated OAuth authentication',
-          },
+            description: 'Successfully initiated OAuth authentication'
+          }
         },
-        security: [{ Auth0: ['openid', 'profile'] }],
-      },
+        security: [{ Auth0: ['openid', 'profile'] }]
+      }
     },
     '/auth/logout': {
       get: {
@@ -88,11 +89,11 @@ const doc = {
         description: 'Callback for Auth0 authentication.',
         responses: {
           200: {
-            description: 'Callback for Auth0 authentication',
-          },
+            description: 'Callback for Auth0 authentication'
+          }
         },
-        security: [{ Auth0: ['openid', 'profile'] }],
-      },
+        security: [{ Auth0: ['openid', 'profile'] }]
+      }
     },
     '/users/login': {
       post: {
@@ -102,15 +103,15 @@ const doc = {
           200: {
             description: 'User authenticated successfully',
             schema: {
-              $ref: '#/definitions/AuthResponse',
-            },
+              $ref: '#/definitions/AuthResponse'
+            }
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [],
         parameters: [
@@ -119,11 +120,11 @@ const doc = {
             name: 'authRequest',
             required: true,
             schema: {
-              $ref: '#/definitions/AuthRequest',
-            },
-          },
-        ],
-      },
+              $ref: '#/definitions/AuthRequest'
+            }
+          }
+        ]
+      }
     },
     '/tasks': {
       post: {
@@ -131,17 +132,17 @@ const doc = {
         description: 'Create a new task.',
         responses: {
           201: {
-            description: 'Task created successfully',
+            description: 'Task created successfully'
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -150,10 +151,10 @@ const doc = {
             name: 'taskData',
             required: true,
             schema: {
-              $ref: '#/definitions/Task',
-            },
-          },
-        ],
+              $ref: '#/definitions/Task'
+            }
+          }
+        ]
       },
       get: {
         summary: 'Get all tasks',
@@ -164,19 +165,19 @@ const doc = {
             schema: {
               type: 'array',
               items: {
-                $ref: '#/definitions/Task',
-              },
-            },
+                $ref: '#/definitions/Task'
+              }
+            }
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
-        security: [{ Auth0: ['openid', 'profile'] }],
-      },
+        security: [{ Auth0: ['openid', 'profile'] }]
+      }
     },
     '/tasks/{id}': {
       get: {
@@ -186,21 +187,21 @@ const doc = {
           200: {
             description: 'Task retrieved successfully',
             schema: {
-              $ref: '#/definitions/Task',
-            },
+              $ref: '#/definitions/Task'
+            }
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           404: {
-            description: 'Task not found',
+            description: 'Task not found'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -208,29 +209,29 @@ const doc = {
             in: 'path',
             name: 'id',
             required: true,
-            type: 'string',
-          },
-        ],
+            type: 'string'
+          }
+        ]
       },
       put: {
         summary: 'Update a task',
         description: 'Update a task by ID.',
         responses: {
           200: {
-            description: 'Task updated successfully',
+            description: 'Task updated successfully'
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           404: {
-            description: 'Task not found',
+            description: 'Task not found'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -238,37 +239,37 @@ const doc = {
             in: 'path',
             name: 'id',
             required: true,
-            type: 'string',
+            type: 'string'
           },
           {
             in: 'body',
             name: 'taskData',
             required: true,
             schema: {
-              $ref: '#/definitions/Task',
-            },
-          },
-        ],
+              $ref: '#/definitions/Task'
+            }
+          }
+        ]
       },
       delete: {
         summary: 'Delete a task',
         description: 'Delete a task by ID.',
         responses: {
           204: {
-            description: 'Task deleted successfully',
+            description: 'Task deleted successfully'
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
-           404: {
-            description: 'Task not found',
+          404: {
+            description: 'Task not found'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -276,10 +277,10 @@ const doc = {
             in: 'path',
             name: 'id',
             required: true,
-            type: 'string',
-          },
-        ],
-      },
+            type: 'string'
+          }
+        ]
+      }
     },
     '/users': {
       post: {
@@ -287,17 +288,17 @@ const doc = {
         description: 'Create a new user.',
         responses: {
           201: {
-            description: 'User created successfully',
+            description: 'User created successfully'
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -306,10 +307,10 @@ const doc = {
             name: 'userData',
             required: true,
             schema: {
-              $ref: '#/definitions/User',
-            },
-          },
-        ],
+              $ref: '#/definitions/User'
+            }
+          }
+        ]
       },
       get: {
         summary: 'Get all users',
@@ -320,19 +321,19 @@ const doc = {
             schema: {
               type: 'array',
               items: {
-                $ref: '#/definitions/User',
-              },
-            },
+                $ref: '#/definitions/User'
+              }
+            }
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
-        security: [{ Auth0: ['openid', 'profile'] }],
-      },
+        security: [{ Auth0: ['openid', 'profile'] }]
+      }
     },
     '/users/{id}': {
       get: {
@@ -342,21 +343,21 @@ const doc = {
           200: {
             description: 'User retrieved successfully',
             schema: {
-              $ref: '#/definitions/User',
-            },
+              $ref: '#/definitions/User'
+            }
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           404: {
-            description: 'User not found',
+            description: 'User not found'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -364,29 +365,29 @@ const doc = {
             in: 'path',
             name: 'id',
             required: true,
-            type: 'string',
-          },
-        ],
+            type: 'string'
+          }
+        ]
       },
       put: {
         summary: 'Update a user',
         description: 'Update a user by ID.',
         responses: {
           200: {
-            description: 'User updated successfully',
+            description: 'User updated successfully'
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           404: {
-            description: 'User not found',
+            description: 'User not found'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -394,37 +395,37 @@ const doc = {
             in: 'path',
             name: 'id',
             required: true,
-            type: 'string',
+            type: 'string'
           },
           {
             in: 'body',
             name: 'userData',
             required: true,
             schema: {
-              $ref: '#/definitions/User',
-            },
-          },
-        ],
+              $ref: '#/definitions/User'
+            }
+          }
+        ]
       },
       delete: {
         summary: 'Delete a user',
         description: 'Delete a user by ID.',
         responses: {
           204: {
-            description: 'User deleted successfully',
+            description: 'User deleted successfully'
           },
           400: {
-            description: 'Bad request',
+            description: 'Bad request'
           },
           401: {
-            description: 'Unauthorized',
+            description: 'Unauthorized'
           },
           404: {
-            description: 'User not found',
+            description: 'User not found'
           },
           500: {
-            description: 'Internal server error',
-          },
+            description: 'Internal server error'
+          }
         },
         security: [{ Auth0: ['openid', 'profile'] }],
         parameters: [
@@ -432,18 +433,16 @@ const doc = {
             in: 'path',
             name: 'id',
             required: true,
-            type: 'string',
-          },
-        ],
-      },
-    },
-  },
+            type: 'string'
+          }
+        ]
+      }
+    }
+  }
 };
-
 
 const outputFile = './swagger.json';
 const endpointsFiles = ['./routes/index.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
 console.log('Swagger runs successfully');
-

@@ -5,7 +5,6 @@ const tasksController = require('../controllers/taskController');
 const usersController = require('../controllers/userController');
 const authRouter = require('../auth/auth');
 
-
 // Validation middleware for task ID
 const validateTaskId = param('id').isMongoId().withMessage('Invalid task ID format');
 
@@ -74,6 +73,6 @@ router.put(
 );
 router.delete('/users/:id', validateUserId, handleValidationErrors, usersController.deleteUser);
 
-router.use('/auth', authRouter); 
+router.use('/auth', authRouter);
 
 module.exports = router;
