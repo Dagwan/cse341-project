@@ -14,7 +14,7 @@
     "Auth0": {
       "type": "oauth2",
       "authorizationUrl": "https://dev-8m28xtltvhrq4ad4.us.auth0.com",
-      "tokenUrl": "https://dev-8m28xtltvhrq4ad4.us.auth0.com",
+      "tokenUrl": "https://locahost:8080",
       "flow": "implicit",
       "scopes": {
         "openid": "OpenID Connect",

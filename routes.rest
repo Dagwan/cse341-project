@@ -20,12 +20,12 @@ curl -X POST \
 GET http://localhost:8080/tasks
 
 ### get task by id
-GET http://localhost:8080/tasks/654516e83e1b9eb9fc8d668c
+GET http://localhost:8080/tasks/6545eb588d526667da126b01
 
 
 ### udate task
 curl -X PUT \
-  'http://localhost:8080/tasks/654516e83e1b9eb9fc8d668c' \
+  'http://localhost:8080/tasks/6545eba48d526667da126b02' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -40,7 +40,7 @@ curl -X PUT \
   }'
 
 #### delete task by id
-DELETE http://localhost:8080/tasks/654516e83e1b9eb9fc8d668c
+DELETE http://localhost:8080/tasks/6545eba48d526667da126b02
 
 
 // LOCAL
@@ -61,18 +61,18 @@ curl -X POST \
   }'
 
 ###
-GET http://localhost:8080/profile
+GET http://localhost:8080/login
 
 ### get all users
 GET http://localhost:8080/users
 
 ### get  user by id
-GET http://localhost:8080/users/654517253e1b9eb9fc8d668d
+GET http://localhost:8080/users/6545ebd18d526667da126b03
 
 
 ### update users
 curl -X PUT \
-  'http://localhost:8080/users/654517253e1b9eb9fc8d668d' \
+  'http://localhost:8080/users/6545ebd18d526667da126b03' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -86,7 +86,7 @@ curl -X PUT \
   }'
 
 ### delete  user by id
-DELETE http://localhost:8080/users/654517253e1b9eb9fc8d668d
+DELETE http://localhost:8080/users/6545ebd18d526667da126b03
 
 
 #................................................................................................
@@ -113,12 +113,12 @@ https://cse341-project-gqaa.onrender.com/tasks
 
 
 ### Get task by id
-GET https://cse341-project-gqaa.onrender.com/tasks/652ab8d9dbbe1126a8c1a575
+GET https://cse341-project-gqaa.onrender.com/tasks/6545ec2daaa63878fd599f5a
 
 
 ### Update task by id
 curl -X 'PUT' \
-  'https://cse341-project-gqaa.onrender.com/tasks/652ab8d9dbbe1126a8c1a575' \
+  'https://cse341-project-gqaa.onrender.com/tasks/6545ec2daaa63878fd599f5a' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -127,14 +127,14 @@ curl -X 'PUT' \
   "description": "Testing",
   "dueDate": "2023",
   "priority": "Important",
-  "completed": "Yes",
-  "createdBy": "Dagwan",
-  "tags": "Owner"
+  "completed": "true",
+  "createdBy": "609c2315bace12ebc96d9fb2",
+  "tags": ["tag39", "tag40"]
 }'
 
 
 ### Delete task by id
-DELETE https://cse341-project-gqaa.onrender.com/tasks/652ab8d9dbbe1126a8c1a575
+DELETE https://cse341-project-gqaa.onrender.com/tasks/6545ec2daaa63878fd599f5a
 
 
 
@@ -161,12 +161,12 @@ https://cse341-project-gqaa.onrender.com/users
 
 
 ### Get user by id
-GET https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576
+GET https://cse341-project-gqaa.onrender.com/users/6545ed0daaa63878fd599f5b
 
 
 ### Update user by id
 curl -X 'PUT' \
-  'https://cse341-project-gqaa.onrender.com/users/65325a7fb3fefb7d301f7783' \
+  'https://cse341-project-gqaa.onrender.com/users/6545ed0daaa63878fd599f5b' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -180,4 +180,4 @@ curl -X 'PUT' \
   }'
 
 ### Delete a user
-DELETE https://cse341-project-gqaa.onrender.com/users/652ab9e4dbbe1126a8c1a576
+DELETE https://cse341-project-gqaa.onrender.com/users/6545ed0daaa63878fd599f5b
